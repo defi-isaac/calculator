@@ -30,6 +30,9 @@ clearButton.addEventListener('click', () => {
 })
 
 removeButton.addEventListener('click', () => {
+    if (numsDisplay.textContent == 'Error' || numsDisplay.textContent == 'NaN') {
+        clear();
+    }
     let content = numsDisplay.textContent;
     numsDisplay.textContent = content.slice(0,-1);
 })
