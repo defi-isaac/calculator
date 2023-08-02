@@ -4,6 +4,7 @@ const clearButton = document.querySelector('#clear');
 const removeButton = document.querySelector('#delete');
 const operatorButton = document.querySelectorAll('.operator');
 const equals = document.querySelector('.equals');
+const dotSelect = document.querySelector('.dot');
 
 const add = (a,b) => a+b;
 const subtract = (a,b) => a-b;
@@ -54,6 +55,12 @@ operatorButton.forEach((operatorButton) => {
         numsDisplay.textContent += operatorButton.id;
     })
 
+})
+
+dotSelect.addEventListener('click', () => {
+    if (!numsDisplay.textContent.split('').includes('.')) {
+        numsDisplay.textContent += dotSelect.id;
+    }
 })
 
 function calculateAnswers (valuesArr, valuesStr, operator) {
