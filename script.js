@@ -53,10 +53,27 @@ operatorButton.forEach((operatorButton) => {
 
 })
 
-equals.addEventListener('click', () => {
-    let values = numsDisplay.textContent.split('');
+function calculateAnswers (valuesArr, valuesStr, operator) {
+    valuesStr = valuesArr.join('');
+    valuesArr = valuesStr.split(`${operator}`);
     clear();
-    numsDisplay.textContent += operate(values[0], values[1], values[2]);
+    numsDisplay.textContent += operate(valuesArr[0], `${operator}`, valuesArr[1]);
+}
+
+equals.addEventListener('click', () => {
+    // Split to later determine the operator
+    let valuesArr = numsDisplay.textContent.split('');
+    let valuesStr;
+    if (valuesArr.includes('+')) {
+        calculateAnswers(valuesArr, valuesStr, '+');
+    } else if (valuesArr.includes('-')) {
+        calculateAnswers(valuesArr, valuesStr, '-');
+    } else if (valuesArr.includes('×')) {
+        calculateAnswers(valuesArr, valuesStr, '×');
+    } else if (valuesArr.includes('÷')) {
+        calculateAnswers(valuesArr, valuesStr, '÷');
+    }
+
 })
 
 
