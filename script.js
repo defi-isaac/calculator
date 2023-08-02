@@ -45,13 +45,10 @@ nums.forEach((numButton) => {
 
 })
 
-let operator;
-
 operatorButton.forEach((operatorButton) => {
 
     operatorButton.addEventListener('click', () => {
         numsDisplay.textContent += operatorButton.id;
-        operator = operatorButton.id;
     })
 
 })
@@ -61,9 +58,6 @@ equals.addEventListener('click', () => {
     clear();
     numsDisplay.textContent += operate(values[0], values[1], values[2]);
 })
-
-console.log(operator);
-
 
 
 
